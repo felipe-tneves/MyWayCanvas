@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas - Aula 02</title>
+    <script type="text/javascript">
+        function desenha(){
+            var px = 50
+            var py = 50
+            var canvas = document.getElementById("desenho1")
+            var ctx = canvas.getContext('2d')
+
+            ctx.fillStyle = "#00f"
+            ctx.rect(px,py,200,200)
+            ctx.fill()
+            //Apagar a área do nosso canvas, toda vez que vamos atualizar noosso desenho 
+            ctx.clearRect(50,50,100,100)
+        }
+
+    </script>
+</head>
+<body onload="desenha()">
+    
+    <canvas id="desenho1" width="500px" height="500px" style="border: 1px solid #000;">
+        <h1>Teste</h1>
+        <h3>Seu browser não possui surporte ao canvas</h3>
+    </canvas>
+    
+</body>
+</html>
