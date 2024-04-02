@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas - Aula 01</title>
+    <style type="text/css">
+        #desenho1{
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    
+    <canvas id="desenho1" width="500px" height="500px">
+        <h1>Teste</h1>
+        <h3>Seu browser não possui surporte ao canvas</h3>
+    </canvas>
+
+
+    <script type="text/javascript">
+        var canvas = document.getElementById("desenho1")
+        var ctx = canvas.getContext('2d')
+
+        ctx.fillStyle = "#00f"
+        ctx.fillRect(0,0,100,100)
+
+        ctx.fillStyle = "rgba(255,0,255,0.5)"
+        ctx.fillRect(50,50,100,100)
+
+    </script>
+</body>
+</html>
