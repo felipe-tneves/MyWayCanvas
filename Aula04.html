@@ -3,20 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Canvas - Aula 02</title>
+    <title>Canvas - Aula 04</title>
     <script type="text/javascript">
+        let px = 0
+        let anima
+
         function desenha(){
-            var px = 50
-            var py = 50
             var canvas = document.getElementById("desenho1")
             var ctx = canvas.getContext('2d')
 
-            ctx.fillStyle = "#00f"
-            //Desenha um quadrado
-            ctx.rect(px,py,200,200)
-            ctx.fill()
-            //Apagar a área do nosso canvas, toda vez que vamos atualizar noosso desenho 
-            ctx.clearRect(50,50,100,100)
+            ctx.clearRect(0,0,500,500)
+
+            //define o estilo do quadrado
+            ctx.fillStyle = "#f00"
+
+            //rederiza um quadrado preenchido
+            ctx.fillRect(px,0,50,50) 
+            
+            px++
+            //metodo para executar animações 
+            anima = requestAnimationFrame(desenha)
+
         }
 
     </script>

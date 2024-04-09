@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas - Aula 05</title>
+</head>
+
+<body>
+
+    <canvas id="desenho1" width="500px" height="500px" style="border: 1px solid #000;">
+        <h1>Teste</h1>
+        <h3>Seu browser não possui surporte ao canvas</h3>
+    </canvas>
+
+    <script type="text/javascript">
+        let canvas = document.getElementById("desenho1")
+        let ctx = canvas.getContext('2d')
+        let dx = 1
+        let px = 0
+        let py = 10
+        let anima
+        let largRet = altRet = 50
+        let largCanvas = altCanvas = 500
+
+        function desenha() {
+
+            ctx.clearRect(0, 0, largCanvas, altCanvas)
+
+            //define o estilo do quadrado
+            ctx.fillStyle = "#f00"
+
+            //rederiza um quadrado preenchido
+            ctx.fillRect(px, py, largRet, altRet)
+
+            px += dx
+            if((px+largRet >= largCanvas) || (px <= 0)){
+                dx *= -1
+            }
+
+            //metodo para executar animações 
+            anima = requestAnimationFrame(desenha)
+
+        }
+
+        desenha()
+    </script>
+
+</body>
+
+</html>
