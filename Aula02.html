@@ -1,31 +1,36 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Canvas - Aula 02</title>
+    <!-- Metadados do documento -->
+    <meta charset="UTF-8"> <!-- Define a codificação de caracteres para UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configura a viewport para tornar a página responsiva -->
+    <title>Canvas - Aula 02</title> <!-- Título da página -->
+
     <script type="text/javascript">
-        function desenha(){
-            var px = 50
-            var py = 50
-            var canvas = document.getElementById("desenho1")
-            var ctx = canvas.getContext('2d')
+        // Função para desenhar no canvas
+        function desenha() {
+            var px = 50; // Coordenada x do ponto inicial do quadrado
+            var py = 50; // Coordenada y do ponto inicial do quadrado
+            var canvas = document.getElementById("desenho1"); // Seleciona o elemento canvas pelo ID
+            var ctx = canvas.getContext('2d'); // Obtém o contexto de renderização 2D
 
-            ctx.fillStyle = "#00f"
-            //Desenha um quadrado
-            ctx.rect(px,py,200,200)
-            ctx.fill()
-            //Apagar a área do nosso canvas, toda vez que vamos atualizar noosso desenho 
-            ctx.clearRect(50,50,100,100)
+            ctx.fillStyle = "#00f"; // Define a cor de preenchimento como azul
+
+            // Desenha um quadrado
+            ctx.rect(px, py, 200, 200); // Define um retângulo na posição (50, 50) com largura e altura de 200 pixels
+            ctx.fill(); // Preenche o retângulo com a cor definida
+
+            // Apaga uma área do canvas
+            ctx.clearRect(50, 50, 100, 100); // Limpa uma área de 100x100 pixels começando na posição (50, 50)
         }
-
     </script>
 </head>
 <body onload="desenha()">
     
     <canvas id="desenho1" width="500px" height="500px" style="border: 1px solid #000;">
+        <!-- Conteúdo alternativo para navegadores que não suportam canvas -->
         <h1>Teste</h1>
-        <h3>Seu browser não possui surporte ao canvas</h3>
+        <h3>Seu browser não possui suporte ao canvas</h3>
     </canvas>
     
 </body>
