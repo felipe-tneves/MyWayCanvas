@@ -1,42 +1,45 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Canvas - Aula 03</title>
+    <!-- Metadados do documento -->
+    <meta charset="UTF-8"> <!-- Define a codificação de caracteres para UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configura a viewport para tornar a página responsiva -->
+    <title>Canvas - Aula 03</title> <!-- Título da página -->
+
     <script type="text/javascript">
-        function desenha(){
-            var px = 50
-            var py = 50
-            var canvas = document.getElementById("desenho1")
-            var ctx = canvas.getContext('2d')
+        // Função para desenhar no canvas
+        function desenha() {
+            var canvas = document.getElementById("desenho1"); // Seleciona o elemento canvas pelo ID
+            var ctx = canvas.getContext('2d'); // Obtém o contexto de renderização 2D
 
-            // Movimenta o lapis em relação ao plano cartesiano
-            ctx.moveTo(0,0)
-            //faz linhas na tela 
-            ctx.lineTo(250,250)
-            ctx.lineTo(400,250)
-            ctx.lineTo(400,100)
-            ctx.moveTo(250,250)
-            ctx.lineTo(200,300)
-            ctx.stroke()
+            // Move o lápis para o ponto inicial (0, 0)
+            ctx.moveTo(0, 0);
+            // Desenha uma linha do ponto (0, 0) até (250, 250)
+            ctx.lineTo(250, 250);
+            // Desenha uma linha do ponto (250, 250) até (400, 250)
+            ctx.lineTo(400, 250);
+            // Desenha uma linha do ponto (400, 250) até (400, 100)
+            ctx.lineTo(400, 100);
+            // Move o lápis de volta para o ponto (250, 250)
+            ctx.moveTo(250, 250);
+            // Desenha uma linha do ponto (250, 250) até (200, 300)
+            ctx.lineTo(200, 300);
+            // Desenha as linhas definidas
+            ctx.stroke();
 
-
-            // ctx.fillRect()
-            //Ferramenta de prenchiento
-            // ctx.fill()
-            // ctx.clearRect(50,50,100,100)
-            
-
+            // Código comentado para demonstração de preenchimento e limpeza
+            // ctx.fillRect() // Desenha um retângulo preenchido
+            // ctx.fill() // Preenche o caminho atual
+            // ctx.clearRect(50,50,100,100) // Limpa uma área do canvas
         }
-
     </script>
 </head>
 <body onload="desenha()">
     
     <canvas id="desenho1" width="500px" height="500px" style="border: 1px solid #000;">
+        <!-- Conteúdo alternativo para navegadores que não suportam canvas -->
         <h1>Teste</h1>
-        <h3>Seu browser não possui surporte ao canvas</h3>
+        <h3>Seu browser não possui suporte ao canvas</h3>
     </canvas>
     
 </body>
