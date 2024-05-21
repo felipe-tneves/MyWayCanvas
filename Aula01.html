@@ -1,35 +1,40 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Canvas - Aula 01</title>
+    <!-- Metadados do documento -->
+    <meta charset="UTF-8"> <!-- Define a codificação de caracteres para UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configura a viewport para tornar a página responsiva -->
+    <title>Canvas - Aula 01</title> <!-- Título da página -->
     <style type="text/css">
-        #desenho1{
-            border: 1px solid #000;
+        /* Estilo para o elemento canvas */
+        #desenho1 {
+            border: 1px solid #000; /* Adiciona uma borda preta de 1 pixel ao redor do canvas */
         }
     </style>
 </head>
 <body>
     
     <canvas id="desenho1" width="500px" height="500px">
+        <!-- Conteúdo alternativo para navegadores que não suportam canvas -->
         <h1>Teste</h1>
-        <h3>Seu browser não possui surporte ao canvas</h3>
+        <h3>Seu browser não possui suporte ao canvas</h3>
     </canvas>
 
-
     <script type="text/javascript">
-        var canvas = document.getElementById("desenho1")
-        var ctx = canvas.getContext('2d')
+        // Seleciona o elemento canvas pelo ID
+        var canvas = document.getElementById("desenho1");
+        // Obtém o contexto de renderização 2D
+        var ctx = canvas.getContext('2d');
 
-        //define o preenchimento o estilo do quadrado
-        ctx.fillStyle = "#00f"
-        //define o desenho 
-        ctx.fillRect(0,0,100,100)
+        // Define a cor de preenchimento para o quadrado (azul)
+        ctx.fillStyle = "#00f";
+        // Desenha um quadrado preenchido na posição (0, 0) com largura e altura de 100 pixels
+        ctx.fillRect(0, 0, 100, 100);
 
-        ctx.fillStyle = "rgba(255,0,255,0.5)"
-        ctx.fillRect(50,50,100,100)
-
+        // Define a cor de preenchimento para o segundo quadrado (magenta com 50% de opacidade)
+        ctx.fillStyle = "rgba(255,0,255,0.5)";
+        // Desenha um segundo quadrado preenchido na posição (50, 50) com largura e altura de 100 pixels
+        ctx.fillRect(50, 50, 100, 100);
     </script>
 </body>
 </html>
