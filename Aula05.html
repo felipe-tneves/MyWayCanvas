@@ -1,52 +1,59 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Canvas - Aula 05</title>
+    <!-- Metadados do documento -->
+    <meta charset="UTF-8"> <!-- Define a codificação de caracteres para UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configura a viewport para tornar a página responsiva -->
+    <title>Canvas - Aula 05</title> <!-- Título da página -->
 </head>
-
 <body>
 
+    <!-- Elemento canvas com largura e altura de 500px e uma borda preta -->
     <canvas id="desenho1" width="500px" height="500px" style="border: 1px solid #000;">
+        <!-- Conteúdo alternativo para navegadores que não suportam canvas -->
         <h1>Teste</h1>
-        <h3>Seu browser não possui surporte ao canvas</h3>
+        <h3>Seu browser não possui suporte ao canvas</h3>
     </canvas>
 
     <script type="text/javascript">
+        // Seleciona o elemento canvas pelo ID e obtém o contexto de renderização 2D
         let canvas = document.getElementById("desenho1")
         let ctx = canvas.getContext('2d')
-        let dx = 1
-        let px = 0
-        let py = 10
-        let anima
-        let largRet = altRet = 50
-        let largCanvas = altCanvas = 500
+        
+        // Variáveis de controle
+        let dx = 1 // Incremento horizontal
+        let px = 0 // Posição inicial horizontal do quadrado
+        let py = 10 // Posição inicial vertical do quadrado
+        let anima // Referência da animação
+        let largRet = 50, altRet = 50 // Largura e altura do quadrado
+        let largCanvas = 500, altCanvas = 500 // Largura e altura do canvas
 
+        // Função para desenhar no canvas
         function desenha() {
-
+            // Limpa toda a área do canvas para atualizar o desenho
             ctx.clearRect(0, 0, largCanvas, altCanvas)
 
-            //define o estilo do quadrado
+            // Define a cor de preenchimento do quadrado como vermelho
             ctx.fillStyle = "#f00"
 
-            //rederiza um quadrado preenchido
+            // Renderiza um quadrado preenchido na posição (px, py) com largura e altura de 50 pixels
             ctx.fillRect(px, py, largRet, altRet)
 
+            // Atualiza a posição horizontal do quadrado
             px += dx
-            if((px+largRet >= largCanvas) || (px <= 0)){
+
+            // Inverte a direção quando o quadrado atinge as bordas do canvas
+            if ((px + largRet >= largCanvas) || (px <= 0)) {
                 dx *= -1
             }
 
-            //metodo para executar animações 
+            // Método para executar a animação
             anima = requestAnimationFrame(desenha)
-
         }
 
+        // Chama a função desenha pela primeira vez para iniciar a animação
         desenha()
     </script>
 
 </body>
-
 </html>
