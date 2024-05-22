@@ -8,50 +8,60 @@
 </head>
 
 <body>
+    <!-- Elemento canvas com largura e altura de 500px e uma borda preta -->
     <canvas id="desenho1" width="500px" height="500px" style="border:1px solid #000;">
+        <!-- Conteúdo alternativo para navegadores que não suportam canvas -->
         <h3>Seu browser não possui suporte ao Canvas</h3>
     </canvas>
+    
+    <!-- Script JavaScript para desenhar no canvas -->
     <script type="text/javascript">
+        // Seleciona o elemento canvas pelo ID e obtém o contexto de renderização 2D
         let canvas = document.getElementById("desenho1")
         let ctx = canvas.getContext('2d')
 
-        let tamMax = 50
-        let tamMin = 10
-        let maxCirculos = 50
-        let angInc = 0
-        let angFim = 0
+        // Variáveis para definir as características dos círculos
+        let tamMax = 50 // Tamanho máximo do raio dos círculos
+        let tamMin = 10 // Tamanho mínimo do raio dos círculos
+        let maxCirculos = 50 // Número máximo de círculos
+        let angInc = 0 // Ângulo inicial para o círculo central
+        let angFim = 0 // Ângulo final para o círculo central
 
+        // Função para desenhar no canvas
         function desenha() {
+            // Limpa o canvas
+            ctx.clearRect(0, 0, 500, 500)
 
-            ctx.clearRect(0,0,500,500)
-            //posX, posY, raio, angIni, angFim, sentido
-            //sentido: true=horário / false: anti-horário
-            //(PI/180)*ang_grau
-
+            // Loop para desenhar círculos aleatórios
             for (let i = 0; i < maxCirculos; i++) {
-                ctx.beginPath()
+                ctx.beginPath() // Inicia um novo caminho
+                // Define uma cor de preenchimento aleatória
                 ctx.fillStyle = 'rgb(' + Math.random() * 250 + ',' + Math.random() * 255 + ',' + Math.random() * 255 + ')'
+                // Desenha um círculo com posição e raio aleatórios
                 ctx.arc(Math.random() * 500, Math.random() * 500, Math.random() * tamMax + tamMin, (Math.PI / 180) * 0, (Math.PI / 180) * 360, true)
-                ctx.fill()
-
+                ctx.fill() // Preenche o círculo
             }
 
-
+            // Inicia um novo caminho para o círculo central
             ctx.beginPath()
-            ctx.fillStyle = '#000'
+            ctx.fillStyle = '#000' // Define a cor de preenchimento como preto
+            // Desenha um arco que representa uma parte do círculo central
             ctx.arc(250, 250, 100, (Math.PI / 180) * angInc, (Math.PI / 180) * angFim, false)
-            ctx.fill()
+            ctx.fill() // Preenche o arco
 
+            // Incrementa o ângulo final para criar uma animação
             angFim++
 
-            if(angFim>360){
-                angFim=0
+            // Reinicia o ângulo final se ele exceder 360 graus
+            if (angFim > 360) {
+                angFim = 0
             }
 
+            // Chama a função desenha novamente para criar a animação contínua
             anima = requestAnimationFrame(desenha)
-
         }
 
+        // Chama a função desenha para iniciar a animação
         desenha()
     </script>
 </body>
