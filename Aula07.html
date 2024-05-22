@@ -6,31 +6,37 @@
     <title>Canvas - Aula 07</title>
 </head>
 <body>
+    <!-- Elemento canvas com largura e altura de 500px e uma borda preta -->
     <canvas id="desenho1" width="500px" height="500px" style="border:1px solid #000;">
+        <!-- Conteúdo alternativo para navegadores que não suportam canvas -->
         <h3>Seu browser não possui suporte ao Canvas</h3>
     </canvas>
+    
+    <!-- Script JavaScript para desenhar no canvas -->
     <script type="text/javascript">
+        // Seleciona o elemento canvas pelo ID e obtém o contexto de renderização 2D
         let canvas = document.getElementById("desenho1")
         let ctx = canvas.getContext('2d')
 
-        function desenha(){
-            //posX, posY, raio, angIni, angFim, sentido
-            //sentido: true=horário / false: anti-horário
-            //(PI/180)*ang_grau
-
+        // Função para desenhar no canvas
+        function desenha() {
+            // Define a cor de preenchimento como preto
             ctx.fillStyle = "#000"
-            ctx.arc(100,100,100,(Math.PI/180)*0,(Math.PI/180)*90,true)
-            ctx.fill()
+            // Desenha um arco
+            ctx.arc(100, 100, 100, (Math.PI / 180) * 0, (Math.PI / 180) * 90, true)
+            ctx.fill()  // Preenche o arco desenhado
 
+            // Inicia um novo caminho
             ctx.beginPath()
 
+            // Define a cor de preenchimento como vermelho
             ctx.fillStyle = "#f00"
-            ctx.arc(100,100,100,(Math.PI/180)*0,(Math.PI/180)*90,false)
-            ctx.fill()
-
-            
+            // Desenha outro arco
+            ctx.arc(100, 100, 100, (Math.PI / 180) * 0, (Math.PI / 180) * 90, false)
+            ctx.fill()  // Preenche o arco desenhado
         }
 
+        // Chama a função desenha para executar o desenho no canvas
         desenha()
     </script>
 </body>
