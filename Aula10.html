@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 10</title>
+</head>
+
+<body>
+    <!-- Imagem original para referência -->
+    <img src="./img/cores.png" alt=""><br>
+
+    <!-- Elemento canvas com borda -->
+    <canvas id="desenho1" width="500" height="500" style="border: 1px solid #000;">
+        <!-- Mensagem para navegadores que não suportam canvas -->
+        <h3>Seu browser não possui suporte ao canvas</h3>
+    </canvas>
+
+    <!-- Script JavaScript para desenhar no canvas -->
+    <script type="text/javascript">
+        // Obtém o elemento canvas e o contexto de renderização 2D
+        let canvas = document.getElementById("desenho1")
+        let ctx = canvas.getContext('2d')
+
+        // Cria um novo objeto de imagem
+        let cores = new Image()
+        // Define a fonte da imagem
+        cores.src = "./img/cores.png"
+
+        // Adiciona um ouvinte de evento para quando a imagem for carregada
+        cores.addEventListener('load', () => {
+            // img, posX, posY, tamX, tamY
+            // ctx.drawImage(nave,0,0,50,50)
+            // Desenha a imagem no canvas usando o método drawImage
+            // Argumentos: imagem, xInicialRecorte, yInicialRecorte, larguraRecorte, alturaRecorte, xDestino, yDestino, larguraDestino, alturaDestino
+            ctx.drawImage(cores, 50, 0, 50, 50, 50, 0, 50, 50)
+        })
+    </script>
+</body>
+
+</html>
