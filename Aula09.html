@@ -8,30 +8,41 @@
 </head>
 
 <body>
+    <!-- Elemento canvas com largura e altura de 500px e uma borda preta -->
     <canvas id="desenho1" width="500px" height="500px" style="border:1px solid #000;">
+        <!-- Conteúdo alternativo para navegadores que não suportam canvas -->
         <h3>Seu browser não possui suporte ao Canvas</h3>
     </canvas>
+
+    <!-- Script JavaScript para desenhar no canvas -->
     <script type="text/javascript">
+        // Seleciona o elemento canvas pelo ID e obtém o contexto de renderização 2D
         let canvas = document.getElementById("desenho1")
         let ctx = canvas.getContext('2d')
 
+        // Função para desenhar no canvas
         function desenha() {
-            ctx.clearRect(0,0,500,500)
-            
-            //Parametros para arcTo = x1, y1, x2, y2, raio
+            // Limpa o canvas
+            ctx.clearRect(0, 0, 500, 500)
 
+            // Inicia um novo caminho de desenho
             ctx.beginPath()
-            ctx.moveTo(0,0)
-            ctx.lineTo(250,250)
-            ctx.arcTo(250,250,500,0,30)
-            ctx.lineTo(500,0)
+            // Move o "lápis" para a posição (0, 0)
+            ctx.moveTo(0, 0)
+            // Desenha uma linha até a posição (250, 250)
+            ctx.lineTo(250, 250)
+            // Cria um arco entre os pontos (250, 250) e (500, 0) com um raio de 30
+             //Parametros para arcTo = x1, y1, x2, y2, raio
+            ctx.arcTo(250, 250, 500, 0, 30)
+            // Desenha uma linha até a posição (500, 0)
+            ctx.lineTo(500, 0)
+            // Fecha o caminho, criando uma linha de volta ao ponto inicial (0, 0)
             ctx.closePath()
+            // Desenha o contorno do caminho
             ctx.stroke()
-
-            // anima = requestAnimationFrame(desenha)
-
         }
 
+        // Chama a função desenha para desenhar no canvas
         desenha()
     </script>
 </body>
